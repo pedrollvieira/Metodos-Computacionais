@@ -220,20 +220,17 @@ def main():
         {'nome': 'Olha! Recife a Pé:', 'data': '04/10/2024', 'hora': '09:30', 'local': 'Recife Walking Tour'},
     ]
     
+    # Ordenar a lista inicial usando Quick Sort
+    lista_inicial_ordenada = metodo_ordenacao(lista_inicial, 'mergesort')
+
     # Fazer uma cópia da lista inicial para evitar alterações indesejadas
-    lista_inicial_copia = copy.deepcopy(lista_inicial)
+    copia_lista = copy.deepcopy(lista_inicial_ordenada)
     
     # Adicionar novos eventos
-    lista_nova = adicionar_evento(lista_inicial)
+    lista_nova = adicionar_evento(lista_inicial_ordenada)
 
     # Verificar se houve mudanças na lista
-    if houve_mudanca(lista_inicial_copia, lista_nova):
-        
-        """ print("Lista original:")
-        for evento in lista_nova:
-            print(evento)  """
-        
-            
+    if houve_mudanca(copia_lista, lista_nova):
         # Medir o tempo de execução de cada algoritmo
         start_time = time.time()
         lista_nova_merge = metodo_ordenacao(lista_nova, 'mergesort')
@@ -247,26 +244,10 @@ def main():
         lista_nova_heap = metodo_ordenacao(lista_nova, 'heapsort')
         tempo_heap = time.time() - start_time
 
-        
-        """ print("\nLista ordenada com Merge Sort:")
-        for evento in lista_nova_merge:
-            print(evento)
-
-        print("\nLista ordenada com Quick Sort:")
-        for evento in lista_nova_quick:
-            print(evento)
-
-        print("\nLista ordenada com Heap Sort:")
-        for evento in lista_nova_heap:
-            print(evento)  """
-        
-            
-        print(f"Tempo de execução do Merge Sort: {tempo_merge:.6f} segundos")
-        print(f"Tempo de execução do Quick Sort: {tempo_quick:.6f} segundos")
-        print(f"Tempo de execução do Heap Sort: {tempo_heap:.6f} segundos")
-        
-    else:
-        print("Não houve mudanças na lista de eventos.")
+        # Exibir os resultados
+        print('Tempo de execução: ', "--- %.10f segundos ---" % tempo_merge)
+        print('Tempo de execução: ', "--- %.10f segundos ---" % tempo_quick)
+        print('Tempo de execução: ', "--- %.10f segundos ---" % tempo_heap)
 
 if __name__ == "__main__":
     main()
