@@ -118,14 +118,9 @@ print(f"O algoritmo mais eficiente é {algoritmo_eficiente} com tempo de viagem 
 
 # Proposta de nova conexão entre Alto do Céu (4) e Aeroporto (17) 
 print("\nCom uma proposta de nova conexão entre Alto do Céu e Aeroporto, obtemos:")
-no_inicial = 4
-no_final = 17
 
-menortempo_dijkstra = dijkstra_adj(graph_adj, no_inicial)
-tempo_estimado = menortempo_dijkstra[no_final]
-
-graph_adj[4].append((17, tempo_estimado))
-graph_adj[17].append((4, tempo_estimado))
+graph_adj[4].append((17, 12))
+graph_adj[17].append((4, 12))
 
 # Recalcular menor tempo usando o algoritmo mais eficiente
 if algoritmo_eficiente == "Dijkstra":
