@@ -87,7 +87,6 @@ no_inicial = 0
 no_final = 19
 
 # Calcular menor tempo usando Dijkstra
-# Calcular menor tempo usando Dijkstra
 tempo_inicio = time.time()
 menortempo_dijkstra = dijkstra_adj(graph_adj, no_inicial)
 tempo_dijkstra = time.time() - tempo_inicio
@@ -117,10 +116,16 @@ else:
 print(f"O algoritmo mais eficiente é {algoritmo_eficiente} com tempo de viagem de {menor_tempo} minutos")
 #print('Tempo de execução: ', "--- %.10f segundos ---" % tempo_execucao)
 
-# Proposta de nova conexão entre Curado (3) e Prazeres (18) com um tempo estimado de 8 minutos
-print("\nCom uma proposta de nova conexão entre Curado e Prazeres, com tempo estimado de 8 minutos, obtemos:")
-graph_adj[3].append((18, 8))
-graph_adj[18].append((3, 8))
+# Proposta de nova conexão entre Alto do Céu (4) e Aeroporto (17) 
+print("\nCom uma proposta de nova conexão entre Alto do Céu e Aeroporto, obtemos:")
+no_inicial = 4
+no_final = 17
+
+menortempo_dijkstra = dijkstra_adj(graph_adj, no_inicial)
+tempo_estimado = menortempo_dijkstra[no_final]
+
+graph_adj[4].append((17, tempo_estimado))
+graph_adj[17].append((4, tempo_estimado))
 
 # Recalcular menor tempo usando o algoritmo mais eficiente
 if algoritmo_eficiente == "Dijkstra":
