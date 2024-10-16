@@ -107,14 +107,60 @@ def heap_sort(lista):
 
 # Função para adicionar novos eventos à lista
 def adicionar_evento(lista):
+    '''
+    nome = input('Digite o nome do evento: ')
+    dia = input('Digite o dia do evento: ')
+    hora = input('Digite a hora do evento: ')
+    local = input('Digite o local do evento: ')
+    evento = {'nome': nome, 'data': dia, 'hora': hora, 'local': local}
+    '''
     novos_eventos = [
         {'nome': 'Olha! Recife Noturno:', 'data': '01/10/2024', 'hora': '21:00', 'local': 'Tour Histórico'},
         {'nome': 'Olha! Recife Pedalando:', 'data': '29/09/2024', 'hora': '09:00', 'local': 'Antigos Cinemas do Recife'},
         {'nome': 'Olha! Recife Barco:', 'data': '26/09/2024', 'hora': '12:00', 'local': 'Passeio no Capibaribe'},
     ]
-    
+
     lista.extend(novos_eventos)
     return lista
+
+# Função para remover eventos da lista
+def remover_evento(lista):
+    '''
+    nome = input('Digite o nome do evento que deseja remover: ')
+    dia = input('Digite o dia do evento que deseja remover: ')
+    hora = input('Digite a hora do evento que deseja remover: ')
+    local = input('Digite o local do evento que deseja remover: ')
+    evento = {'nome': nome, 'data': dia, 'hora': hora, 'local': local}
+    lista.remove(evento)
+    return lista
+    '''
+    pass
+
+
+# Função para alterar data/hora de um evento
+def alterar_evento(lista):
+    '''
+    evento_antigo = input('Digite o nome, o dia, a hora e o local do evento que deseja alterar (formato: nome: dd/mm/aaaa hh:mm local): ')
+
+    novo_dia = input('Digite o novo dia do evento (formato: dd/mm/aaaa): ')
+    nova_hora = input('Digite a nova hora do evento (formato: hh:mm): ')
+    novo_local = input('Digite o novo local do evento: ')
+
+    for evento in lista:
+        # Verifica se o nome, dia e hora do evento correspondem ao evento antigo
+        if evento['nome'] + ': ' + evento['data'] + ' ' + evento['hora'] + ' ' + evento['local'] == evento_antigo:
+            # Atualiza os detalhes do evento
+            evento['data'] = novo_dia
+            evento['hora'] = nova_hora
+            evento['local'] = novo_local
+            print('Evento alterado com sucesso!')
+            return lista
+
+    # Se o evento não for encontrado, informa ao usuário
+    print('Evento não encontrado.')
+    return lista
+    '''
+    pass
 
 # Função para identificar o método de ordenação a ser utilizado
 def metodo_ordenacao(lista, metodo=''):
